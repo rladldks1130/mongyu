@@ -1,5 +1,5 @@
 homeOn = True
 
 settingOn = False
-save = False
-new = False
+saveOn = False
+newOn = False
