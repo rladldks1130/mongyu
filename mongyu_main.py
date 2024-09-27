@@ -1,5 +1,8 @@
 import pygame
+import sys
+import mongyu_trigger as trigger
 import mongyu_home as home
+
 
 # 몽유 기본 세팅
 pygame.init()
@@ -13,8 +16,19 @@ def main():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
-		
-		home.home(screen)
+				sys.exit()
+
+			if trigger.homeOn:
+				home.home(screen, event)
+
+			if trigger.settingOn:
+				home.setting(screen, event)
+			
+			if trigger.saveOn:
+				home.save(screen, event)
+			
+			if trigger.newOn:
+				home.new(screen, event)
 
 		clock.tick(FPS)
 		pygame.display.update()
